@@ -1,0 +1,1037 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Special Birthday 🎂</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --navy: #03132f;
+      --blue: #087cff;
+      --cyan: #23d9ff;
+      --yellow: #ffc629;
+      --white: #fff;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--navy);
+      color: white;
+      overflow-x: hidden;
+    }
+
+    button {
+      font: inherit;
+      cursor: pointer;
+    }
+
+    .navbar {
+      min-height: 64px;
+      padding: 12px 5%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      background: rgba(2, 19, 53, .96);
+      border-radius: 0 0 24px 24px;
+      position: relative;
+      z-index: 2;
+    }
+
+    .brand {
+      font-family: 'Baloo 2', cursive;
+      font-size: 25px;
+      font-weight: 700;
+      white-space: nowrap;
+    }
+
+    .brand span {
+      color: #ffcf36;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 25px;
+    }
+
+    .nav-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 13px;
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--cyan);
+    }
+
+    .hero {
+      position: relative;
+      padding: 48px 6% 38px;
+      display: grid;
+      grid-template-columns: 1fr 1.15fr;
+      align-items: center;
+      gap: 30px;
+      min-height: 470px;
+      background:
+        radial-gradient(ellipse at 15% 20%, #0c4385 0, transparent 38%),
+        radial-gradient(ellipse at 90% 80%, #052a59 0, transparent 45%),
+        linear-gradient(135deg, #04112e, #061e48);
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: "✦  ·  ✧  ·  ✦  ·  ✧  ·  ✦";
+      position: absolute;
+      top: 25px;
+      left: 5%;
+      right: 5%;
+      color: #9bd9ff;
+      letter-spacing: 20px;
+      opacity: .65;
+      pointer-events: none;
+    }
+
+    .teddy-stage {
+      min-width: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 15px 0;
+    }
+
+    .teddy {
+      width: min(100%, 350px);
+      aspect-ratio:  .88;
+      position: relative;
+      animation: float 3.5s ease-in-out infinite;
+      filter: drop-shadow(0 20px 22px rgba(0,0,0,.3));
+    }
+
+    .ear {
+      position: absolute;
+      top: 6%;
+      width: 30%;
+      height: 31%;
+      background: #b97640;
+      border: 7px solid #e8b47c;
+      border-radius: 50%;
+      z-index: 0;
+    }
+
+    .ear::after {
+      content: "";
+      position: absolute;
+      inset: 18%;
+      border-radius: 50%;
+      background: #e5a4a0;
+    }
+
+    .ear.left {
+      left: 9%;
+      transform: rotate(-20deg);
+    }
+
+    .ear.right {
+      right: 9%;
+      transform: rotate(20deg);
+    }
+
+    .head {
+      position: absolute;
+      top: 12%;
+      left: 10%;
+      width: 80%;
+      height: 57%;
+      background: radial-gradient(circle at 35% 20%, #f6d2a0, #d99a5e 70%);
+      border-radius: 47% 47% 44% 44%;
+      border: 3px solid #c9854b;
+      z-index: 1;
+    }
+
+    .eye {
+      position: absolute;
+      top: 43%;
+      width: 8%;
+      height: 10%;
+      background: #24170f;
+      border-radius: 50%;
+      box-shadow: inset 2px 2px 0 #fff;
+    }
+
+    .eye.left { left: 26%; }
+    .eye.right { right: 26%; }
+
+    .cheek {
+      position: absolute;
+      top: 56%;
+      width: 15%;
+      height: 8%;
+      background: #f49a99;
+      opacity: .8;
+      border-radius: 50%;
+      filter: blur(2px);
+    }
+
+    .cheek.left { left: 10%; }
+    .cheek.right { right: 10%; }
+
+    .muzzle {
+      position: absolute;
+      top: 52%;
+      left: 34%;
+      width: 32%;
+      height: 26%;
+      background: #ffe3bc;
+      border-radius: 50%;
+    }
+
+    .nose {
+      position: absolute;
+      top: 15%;
+      left: 37%;
+      width: 26%;
+      height: 22%;
+      background: #56301f;
+      border-radius: 50% 50% 45% 45%;
+    }
+
+    .mouth {
+      position: absolute;
+      top: 39%;
+      left: 42%;
+      width: 17%;
+      height: 20%;
+      border-bottom: 2px solid #56301f;
+      border-left: 2px solid #56301f;
+      border-radius: 0 0 0 12px;
+      transform: rotate(-45deg);
+    }
+
+    .body-teddy {
+      position: absolute;
+      bottom: 7%;
+      left: 18%;
+      width: 64%;
+      height: 44%;
+      border-radius: 45% 45% 35% 35%;
+      background: linear-gradient(140deg, #287de0, #06469c);
+      border: 4px solid #123e7a;
+      z-index: 2;
+    }
+
+    .arm {
+      position: absolute;
+      top: 23%;
+      width: 27%;
+      height: 48%;
+      background: linear-gradient(120deg, #f5cc96, #c7834b);
+      border: 3px solid #c7834b;
+      border-radius: 50%;
+      z-index: 3;
+    }
+
+    .arm.left {
+      left: -12%;
+      transform: rotate(28deg);
+    }
+
+    .arm.right {
+      right: -12%;
+      transform: rotate(-28deg);
+    }
+
+    .foot {
+      position: absolute;
+      bottom: -8%;
+      width: 39%;
+      height: 30%;
+      background: #e5b47d;
+      border: 4px solid #bd7d47;
+      border-radius: 50%;
+      z-index: 4;
+    }
+
+    .foot.left { left: -4%; }
+    .foot.right { right: -4%; }
+
+    .paw {
+      position: absolute;
+      inset: 22%;
+      border-radius: 50%;
+      background: #bd7d47;
+    }
+
+    .paw::before,
+    .paw::after {
+      content: "";
+      position: absolute;
+      width: 25%;
+      height: 30%;
+      border-radius: 50%;
+      background: #8d5734;
+      top: -8%;
+    }
+
+    .paw::before { left: 15%; }
+    .paw::after { right: 15%; }
+
+    .heart {
+      position: absolute;
+      top: 34%;
+      left: 24%;
+      width: 52%;
+      height: 48%;
+      background: #ff365f;
+      transform: rotate(-45deg);
+      border-radius: 8px;
+      z-index: 5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      box-shadow: 0 8px 18px #001d4d66;
+    }
+
+    .heart::before,
+    .heart::after {
+      content: "";
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: #ff365f;
+      border-radius: 50%;
+    }
+
+    .heart::before { top: -50%; left: 0; }
+    .heart::after { left: 50%; top: 0; }
+
+    .heart span {
+      position: relative;
+      z-index: 2;
+      transform: rotate(45deg);
+      color: white;
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(13px, 2vw, 20px);
+      line-height: 1.1;
+      text-align: center;
+    }
+
+    .bow {
+      position: absolute;
+      z-index: 7;
+      top: 25%;
+      left: 20%;
+      width: 24%;
+      height: 12%;
+      transform: rotate(-18deg);
+    }
+
+    .bow::before,
+    .bow::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      width: 45%;
+      height: 100%;
+      background: #087cff;
+      border: 2px solid #064aab;
+      border-radius: 8px 20px 8px 20px;
+    }
+
+    .bow::before { left: 0; transform: rotate(20deg); }
+    .bow::after { right: 0; transform: rotate(-20deg); }
+
+    .bow-knot {
+      position: absolute;
+      top: 20%;
+      left: 39%;
+      width: 22%;
+      height: 60%;
+      border-radius: 50%;
+      background: #4ba5ff;
+      z-index: 2;
+    }
+
+    .hero-copy {
+      position: relative;
+      z-index: 1;
+      text-align: center;
+      max-width: 600px;
+      margin: auto;
+    }
+
+    .eyebrow {
+      color: var(--cyan);
+      font-family: 'Baloo 2', cursive;
+      font-size: 25px;
+      font-weight: 700;
+    }
+
+    h1 {
+      font-family: 'Baloo 2', cursive;
+      font-size: clamp(42px, 6.2vw, 76px);
+      line-height: .98;
+      margin: 10px 0 24px;
+    }
+
+    h1 span {
+      display: block;
+      color: var(--yellow);
+    }
+
+    .hero-copy p {
+      line-height: 1.9;
+      color: #e5efff;
+      font-size: 14px;
+    }
+
+    .squiggle {
+      color: var(--cyan);
+      font-size: 26px;
+      margin: 12px 0;
+      letter-spacing: 9px;
+    }
+
+    .wishes {
+      padding: 28px 6% 35px;
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 16px;
+      background: linear-gradient(180deg, #071d42, #03132f);
+    }
+
+    .wish-card {
+      text-align: center;
+      padding: 24px 14px 20px;
+      border: 1px solid var(--card-color);
+      border-radius: 18px;
+      background: var(--card-bg);
+      transition: transform .25s, box-shadow .25s;
+    }
+
+    .wish-card:hover {
+      transform: translateY(-7px);
+      box-shadow: 0 12px 25px #0003;
+    }
+
+    .wish-icon {
+      font-size: 33px;
+      margin-bottom: 8px;
+    }
+
+    .wish-card h3 {
+      font-family: 'Baloo 2', cursive;
+      color: var(--card-color);
+      font-size: 20px;
+      margin-bottom: 8px;
+    }
+
+    .wish-card p {
+      color: #e6edff;
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    .wish-card:nth-child(1) {
+      --card-color: #08a4ff;
+      --card-bg: #04224b;
+    }
+
+    .wish-card:nth-child(2) {
+      --card-color: #f4a9ff;
+      --card-bg: #21163f;
+    }
+
+    .wish-card:nth-child(3) {
+      --card-color: #65efd1;
+      --card-bg: #082d42;
+    }
+
+    .wish-card:nth-child(4) {
+      --card-color: #ffce43;
+      --card-bg: #272039;
+    }
+
+    .message-section {
+      padding: 0 5% 40px;
+      background: #03132f;
+    }
+
+    .message-box {
+      border: 1px solid #087cff;
+      border-radius: 22px;
+      padding: 26px;
+      display: grid;
+      grid-template-columns: .9fr 1.1fr .8fr;
+      gap: 25px;
+      align-items: center;
+      background: linear-gradient(120deg, #05214b, #031432);
+    }
+
+    .photo-card {
+      background: #fff;
+      padding: 12px 12px 35px;
+      transform: rotate(-5deg);
+      border-radius: 8px;
+      max-width: 270px;
+      margin: auto;
+      box-shadow: 0 10px 30px #0004;
+    }
+
+    .photo-art {
+      aspect-ratio: 4 / 4.5;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      background: linear-gradient(160deg, #d8e8f7, #9ab5d0);
+      color: #06234c;
+      text-align: center;
+      border-radius: 4px;
+      padding: 10px;
+    }
+
+    .photo-art .avatar {
+      font-size: clamp(50px, 7vw, 85px);
+    }
+
+    .photo-art small {
+      font-size: 11px;
+    }
+
+    .photo-caption {
+      color: #05214b;
+      text-align: center;
+      padding-top: 10px;
+      font-family: 'Baloo 2', cursive;
+      font-size: 21px;
+      font-weight: 800;
+    }
+
+    .message-copy {
+      padding: 10px 0;
+    }
+
+    .message-copy h2 {
+      font-family: 'Baloo 2', cursive;
+      color: var(--cyan);
+      font-size: clamp(25px, 3vw, 34px);
+      line-height: 1.2;
+      margin-bottom: 20px;
+    }
+
+    .message-copy h2 span {
+      color: white;
+      display: block;
+    }
+
+    .message-copy p {
+      color: #e6edff;
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .signature {
+      font-family: 'Baloo 2', cursive;
+      color: var(--yellow);
+      font-size: 19px;
+      margin-top: 18px;
+    }
+
+    .actions {
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+    }
+
+    .action-btn {
+      width: 100%;
+      min-height: 55px;
+      border: 2px solid var(--cyan);
+      border-radius: 40px;
+      background: transparent;
+      color: white;
+      padding: 12px 15px;
+      transition: transform .2s, background .2s;
+    }
+
+    .action-btn:hover {
+      transform: translateY(-3px);
+      background: #0b315b;
+    }
+
+    .action-btn.primary {
+      background: var(--yellow);
+      color: #071a3b;
+      border-color: var(--yellow);
+      font-weight: 700;
+    }
+
+    footer {
+      text-align: center;
+      padding: 30px 15px;
+      background:
+        radial-gradient(ellipse at 50% 120%, #0b3a77, transparent 70%),
+        #03132f;
+    }
+
+    footer h2 {
+      font-family: 'Baloo 2', cursive;
+      font-size: 30px;
+      color: var(--cyan);
+    }
+
+    footer p {
+      font-size: 12px;
+      color: #dce8ff;
+      margin-top: 8px;
+    }
+
+    .footer-heart {
+      color: var(--yellow);
+      font-size: 23px;
+      margin-top: 10px;
+    }
+
+    .surprise {
+      position: fixed;
+      inset: 0;
+      z-index: 10;
+      background: rgba(1, 10, 30, .88);
+      display: none;
+      place-items: center;
+      padding: 20px;
+    }
+
+    .surprise.show {
+      display: grid;
+    }
+
+    .surprise-card {
+      width: min(100%, 430px);
+      text-align: center;
+      padding: 35px 25px;
+      border: 1px solid var(--cyan);
+      border-radius: 25px;
+      background: linear-gradient(145deg, #082959, #07132f);
+      box-shadow: 0 20px 70px #0007;
+      animation: pop .35s ease-out;
+    }
+
+    .surprise-card .big-cake {
+      font-size: 65px;
+    }
+
+    .surprise-card h2 {
+      color: var(--yellow);
+      font-family: 'Baloo 2', cursive;
+      font-size: 32px;
+      margin: 10px 0;
+    }
+
+    .surprise-card p {
+      line-height: 1.8;
+      font-size: 14px;
+    }
+
+    .close-btn {
+      margin-top: 22px;
+      padding: 10px 25px;
+      border: 0;
+      border-radius: 30px;
+      background: var(--cyan);
+      color: #03132f;
+      font-weight: 700;
+    }
+
+    .confetti {
+      position: fixed;
+      z-index: 20;
+      top: -20px;
+      font-size: 22px;
+      pointer-events: none;
+      animation: fall 3s linear forwards;
+    }
+
+    @keyframes float {
+      0%, 100% { transform: translateY(0) rotate(-2deg); }
+      50% { transform: translateY(-12px) rotate(2deg); }
+    }
+
+    @keyframes pop {
+      from { transform: scale(.75); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
+
+    @keyframes fall {
+      to {
+        transform: translateY(110vh) rotate(540deg);
+        opacity: 0;
+      }
+    }
+
+    @media (min-width: 1200px) {
+      .hero {
+        padding-left: 10%;
+        padding-right: 10%;
+      }
+    }
+
+    @media (max-width: 850px) {
+      .hero {
+        grid-template-columns: 1fr 1fr;
+        padding: 50px 4% 30px;
+      }
+
+      .wishes {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+
+      .message-box {
+        grid-template-columns: 1fr 1.2fr;
+      }
+
+      .actions {
+        grid-column: 1 / -1;
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .action-btn {
+        font-size: 12px;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .navbar {
+        flex-direction: column;
+        gap: 7px;
+        padding: 10px 12px 14px;
+      }
+
+      .brand {
+        font-size: 23px;
+      }
+
+      .nav-links {
+        justify-content: center;
+        gap: 17px;
+      }
+
+      .nav-links a {
+        font-size: 12px;
+      }
+
+      .hero {
+        grid-template-columns: 1fr;
+        gap: 5px;
+        padding: 35px 22px 30px;
+      }
+
+      .hero::before {
+        letter-spacing: 8px;
+      }
+
+      .teddy {
+        width: min(78%, 280px);
+      }
+
+      .hero-copy {
+        padding: 5px 0 10px;
+      }
+
+      .eyebrow {
+        font-size: 22px;
+      }
+
+      h1 {
+        font-size: clamp(43px, 13vw, 65px);
+      }
+
+      .hero-copy p {
+        font-size: 13px;
+      }
+
+      .wishes {
+        padding: 20px 15px 28px;
+        gap: 12px;
+      }
+
+      .wish-card {
+        padding: 18px 10px;
+      }
+
+      .wish-card h3 {
+        font-size: 17px;
+      }
+
+      .wish-card p {
+        font-size: 11px;
+      }
+
+      .message-section {
+        padding: 0 14px 25px;
+      }
+
+      .message-box {
+        grid-template-columns: 1fr;
+        padding: 23px 18px;
+        gap: 25px;
+      }
+
+      .photo-card {
+        width: min(78%, 245px);
+      }
+
+      .message-copy {
+        text-align: center;
+      }
+
+      .message-copy h2 {
+        font-size: 28px;
+      }
+
+      .actions {
+        grid-column: auto;
+        display: flex;
+      }
+
+      .action-btn {
+        font-size: 14px;
+      }
+
+      footer h2 {
+        font-size: 27px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <nav class="navbar">
+    <div class="brand">♥ <span>Special Birthday</span></div>
+    <div class="nav-links">
+      <a href="#home">⌂ Home</a>
+      <a href="#wishes">♡ Wishes</a>
+      <a href="#message">☆ For You</a>
+    </div>
+  </nav>
+
+  <main>
+    <section class="hero" id="home">
+
+      <div class="teddy-stage">
+        <div class="teddy" role="img" aria-label="Cute teddy bear holding a red heart">
+          <div class="ear left"></div>
+          <div class="ear right"></div>
+
+          <div class="head">
+            <div class="eye left"></div>
+            <div class="eye right"></div>
+            <div class="cheek left"></div>
+            <div class="cheek right"></div>
+            <div class="muzzle">
+              <div class="nose"></div>
+              <div class="mouth"></div>
+            </div>
+          </div>
+
+          <div class="bow">
+            <div class="bow-knot"></div>
+          </div>
+
+          <div class="body-teddy">
+            <div class="arm left"></div>
+            <div class="arm right"></div>
+            <div class="foot left"><div class="paw"></div></div>
+            <div class="foot right"><div class="paw"></div></div>
+            <div class="heart"><span>You're<br>Special ♥</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-copy">
+        <div class="eyebrow">♛ Hey Love!</div>
+        <h1>Happy <span>Birthday!</span></h1>
+        <div class="squiggle">♡ ━━━━━ ♡</div>
+        <p>
+          May your special day be filled with happiness,
+          love and all the wonderful things you've always wished for! <br>
+          “We won’t be able to meet on your birthday, so I’ve made this special card just for you. ❤️🎂”
+        </p>
+        <div class="squiggle">━━ ♡ ━━</div>
+      </div>
+
+    </section>
+
+    <section class="wishes" id="wishes">
+      <article class="wish-card">
+        <div class="wish-icon">🎁</div>
+        <h3>More Happiness</h3>
+        <p>May your days be filled with endless joy.</p>
+      </article>
+
+      <article class="wish-card">
+        <div class="wish-icon">🌟</div>
+        <h3>Big Dreams</h3>
+        <p>May all your dreams come true.</p>
+      </article>
+
+      <article class="wish-card">
+        <div class="wish-icon">💚</div>
+        <h3>Good Health</h3>
+        <p>Stay fit, stay strong, stay happy.</p>
+      </article>
+
+      <article class="wish-card">
+        <div class="wish-icon">😊</div>
+        <h3>Great Success</h3>
+        <p>May you achieve everything you desire.</p>
+      </article>
+    </section>
+
+    <section class="message-section" id="message">
+      <div class="message-box">
+
+        <div class="photo-card">
+          <div class="photo-art">
+            <div class="avatar">😎</div>
+            <strong>Keep Smiling!</strong>
+            <small>Stay awesome, birthday boy ✨</small>
+          </div>
+          <div class="photo-caption">Birthday Boy ♡</div>
+        </div>
+
+        <div class="message-copy">
+          <h2>☆ A Special Message <span>Just For You ♡</span></h2>
+          <p>
+            
+            Happy Birthday to the man who holds a special place in my heart.
+            ❤️ You are not just my fiancé, you are my happiness, my peace, and
+             my favorite person. You make my world more beautiful just by bein
+             g in it.✨
+          </p>
+          <div class="signature">Enjoy your day, handsome! ☺</div>
+        </div>
+
+        <div class="actions">
+          <button class="action-btn primary" onclick="openSurprise()">
+            🎁 Open Your Surprise
+          </button>
+          <button class="action-btn" onclick="showWishes()">
+            ♡ More Wishes
+          </button>
+          <button class="action-btn" onclick="goHome()">
+            ⌂ Back to Home
+          </button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <h2>♡ Happy Birthday ♡</h2>
+    <p>May your life be as amazing as you are! ✨</p>
+    <div class="footer-heart">━━ ♥ ━━</div>
+    <p>💙 Made with love, just for you 💗</p>
+  </footer>
+
+  <div class="surprise" id="surprise" role="dialog" aria-modal="true" aria-labelledby="surpriseTitle">
+    <div class="surprise-card">
+      <div class="big-cake">🎂🎉</div>
+      <h2 id="surpriseTitle">Happy birthday shabii!</h2>
+      <p>
+      May your smile never fade, may your heart always stay happy,
+       and may our love grow stronger with every passing day. 🧿❤️
+I love you more than words can ever explain. Forever yours,
+ InshaAllah. ♾️❤️😘
+      </p>
+      <button class="close-btn" onclick="closeSurprise()">Thank You! ♡</button>
+    </div>
+  </div>
+
+  <script>
+    const surprise = document.getElementById('surprise');
+
+    function openSurprise() {
+      surprise.classList.add('show');
+      createConfetti();
+    }
+
+    function closeSurprise() {
+      surprise.classList.remove('show');
+    }
+
+    function showWishes() {
+      document.getElementById('wishes').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    function goHome() {
+      document.getElementById('home').scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+
+    function createConfetti() {
+      const pieces = ['🎉', '💙', '⭐', '🎈', '💛', '✨'];
+
+      for (let i = 0; i < 35; i++) {
+        const piece = document.createElement('span');
+        piece.className = 'confetti';
+        piece.textContent = pieces[Math.floor(Math.random() * pieces.length)];
+        piece.style.left = Math.random() * 100 + 'vw';
+        piece.style.animationDelay = Math.random() * 1.5 + 's';
+        document.body.appendChild(piece);
+
+        piece.addEventListener('animationend', () => piece.remove());
+      }
+    }
+
+    surprise.addEventListener('click', function(event) {
+      if (event.target === surprise) {
+        closeSurprise();
+      }
+    });
+
+    document.addEventListener('keydown', function(event) {
+      if (event.key === 'Escape') {
+        closeSurprise();
+      }
+    });
+  </script>
+
+</body>
+</html>
+ 
